@@ -2,10 +2,14 @@
 // Estilos del contenido principal
 
 .main {
+  background-image: url("../images/fondo.jpg");
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .memory {
@@ -13,6 +17,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  max-width: 100rem;
 }
 
 
@@ -33,12 +38,13 @@
 .memory__card {
   cursor: pointer;
   position: relative;
-  width: 15rem;
-  height: 15rem;
+  width: 20rem;
+  height: 20rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.61);
 }
 
 .imgDefault,
-.img {
+.frame {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -50,4 +56,22 @@
   transform: rotateY(180deg);
 }
 
+.img{
+  position: absolute;
+  width: 15rem;
+  height: 15rem;
+  margin-left: 2.5rem;
+  margin-top: 2.5rem;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+}
 
+.imgPerla{
+  position: absolute;
+  margin-left: 5rem;
+  margin-top: 2.5rem;
+  width: 10rem;
+  height: 15rem;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+}
