@@ -1,26 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Memory Art</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="icon" href="./assets/images/favicon.png" />
 </head>
-
 <body>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
+  <header>
+    <h1 class="title">Memory Art</h1>
+  </header>
+  
+  <main class="main">
+ 
+    <button class="btn js-btn">Reiniciar juego</button><div class="memory">
+    <div class="memory__card js-card">
+      <img class="imgDefault hiddenImg js-default" src="./assets/images/default.jpg"/>
+      <img class="img hidden js-img" src="./assets/images/mona-lisa.png" id="monaLisa" />
+    </div>
+    <div class="memory__card js-card">
+      <img class="imgDefault hiddenImg js-default" src="./assets/images/default.jpg"/>
+      <img class="img hidden js-img" src="./assets/images/mona-lisa.png" id="monaLisa" />
+    </div>
+
+    <div class="memory__card js-card">
+      <img class="imgDefault hiddenImg js-default" src="./assets/images/default.jpg"/>
+      <img class="img hidden js-img" src="./assets/images/perla.png" id="perla" />
+    </div>
+    <div class="memory__card js-card">
+      <img class="imgDefault hiddenImg js-default" src="./assets/images/default.jpg"/>
+      <img class="img hidden js-img" src="./assets/images/perla.png" id="perla" />
+    </div>
+
+    <div class="memory__card js-card">
+      <img class="imgDefault hiddenImg js-default" src="./assets/images/default.jpg"/>
+      <img class="img hidden js-img" src="./assets/images/frida.png" id="frida" />
+    </div>
+    <div class="memory__card js-card">
+      <img class="imgDefault hiddenImg js-default" src="./assets/images/default.jpg"/>
+      <img class="img hidden js-img" src="./assets/images/frida.png" id="frida" />
+    </div>
+
+    <div class="memory__card js-card">
+      <img class="imgDefault hiddenImg js-default" src="./assets/images/default.jpg"/>
+      <img class="img hidden js-img" src="./assets/images/david.png" id="david" />
+    </div>
+    <div class="memory__card js-card">
+      <img class="imgDefault hiddenImg js-default" src="./assets/images/default.jpg"/>
+      <img class="img hidden js-img" src="./assets/images/david.png" id="david" />
+    </div>
+  </div>
+</main>
   <script src="./assets/js/main.js"></script>
 </body>
-
 </html>
