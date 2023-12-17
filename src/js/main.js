@@ -14,7 +14,7 @@ let secondResult = null;
 let move = 0;
 let success = 0;
 let temp = false;
-let timer = 40;
+let timer = 4;
 let timerInicial = 30;
 let countdown;
 
@@ -31,20 +31,33 @@ const countTime = () => {
 
     if (timer === 0) {
       clearInterval(countdown);
-      showSuccess.innerHTML = `¡Se acabó el tiempo!`;
+      showSuccess.innerHTML = `¡OH NO! ¡Se acabó el tiempo! <img class="icon" src="./assets/images/triste.png" />`;
       blockCards();
     }
   }, 1000);
 };
 
-const blockCards = () => {
-  let i = 0;
-  for (const blockCard of document.querySelectorAll(i)) {
-    blockCard.innerHTML = numbers[i];
-    blockCard.disabled = true;
-    i++;
-  }
+const resetAllCards = () => {
+  allCards.forEach((card) => {
+    card.innerHTML = '';
+    card.disabled = false;
+  });
 };
+
+const blockCards = () => {
+  allCards.forEach((blockCard, i) => {
+    const currentNumber = numbers[i];
+    blockCard.innerHTML = `<img class="frame" src="./assets/images/frame.png" /><img class="img js-img" src="./assets/images/${currentNumber}.jpg"/>`;
+    blockCard.disabled = true;
+    btnReset.classList.remove('hidden');
+  });
+};
+
+const allCards = document.querySelectorAll('.memory__card');
+allCards.forEach((card) => {
+  card.innerHTML = '';
+  card.disabled = false;
+});
 
 /**funcion principal */
 
@@ -78,7 +91,7 @@ const uncover = (id) => {
 
       if (success === 8) {
         clearInterval(countdown);
-        showSuccess.innerHTML = `¡Lo lograste!`;
+        showSuccess.innerHTML = `¡Lo lograste! <img class="icon" src="./assets/images/win.png" />`;
         showTime.innerHTML = `Lo acabaste en ${timerInicial - timer} segundos`;
         moveResult.innerHTML = `Lo hiciste con ${move} movimientos`;
         btnReset.classList.remove('hidden');
