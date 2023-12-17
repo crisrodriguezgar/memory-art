@@ -1,5 +1,8 @@
 .title {
-  @include textStyle(white, $font-shadows, 5rem, bold, 0);
+  @include textStyle(white, $font-shadows, 3.5rem, bold, 0);
   @include dFlex(0, center, center);
   padding-bottom: 1.5rem;
+  @media (min-width: 768px) {
+    font-size: 5rem;
+  }
 }
