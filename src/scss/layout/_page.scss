@@ -1,59 +1,59 @@
-
-// Estilos del contenido principal
-
-.main {
-  background-image: url("../images/fondo.jpg");
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+body {
+  background-image: url('../images/fondo8.jpg');
   min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.container{
-  @media(min-width: 768px){
+.main {
+  @include dFlex(column, center, center);
+  padding: 2rem;
+}
+
+.container {
+  @media (min-width: 768px) {
     display: flex;
     align-items: baseline;
   }
-  
 }
+
 .memory {
-  display: flex;
+  @include dFlex(0, center, center);
   flex-wrap: wrap;
-  justify-content: center;
   gap: 2rem;
   max-width: 65rem;
+  margin-bottom: 2rem;
 }
 
+.moving{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .btn {
-  font-family: $font-patrick;
-  font-size: 1.5rem;
-  padding: 0.6rem 10rem;
-  background-color: #9e7341f6;
-  color: white;
-  border: none;
-  border-radius: 5rem;
-  cursor: pointer;
+  @include textStyle(white, $font-patrick, 1.5rem, regular, 0);
+  @include btn(none, 5rem, #706d6af6);
+  @include size(30rem, 3.5rem);
+  padding: 0.6rem 1rem;
   transition: background-color 0.3s ease;
   margin-bottom: 2.5rem;
-  &:hover{
+  cursor: pointer;
+  &:hover {
     background-color: #9e7341c7;
   }
 }
 
-.move{
-  font-family: $font-patrick;
-  font-size: 1.5rem;
-  padding: 0.6rem 5rem;
-  background-color: #9e734138;
-  color: white;
-  border: none;
-  border-radius: 5rem;
+.move {
+  @include textStyle(white, $font-patrick, 1.5rem, regular,0);
+  @include btn(none, 5rem, #1f1d1a5b);
+  @include size(30rem, 3.5rem);
+  padding: 0.6rem 1rem;
   margin-bottom: 1rem;
   text-align: center;
+  @media (min-width: 768px) {
+    background-color: #9e734138;
+  }
 }
 
 // Estilos de las tarjetas de memoria
@@ -61,16 +61,14 @@
 .memory__card {
   cursor: pointer;
   position: relative;
-  width: 12rem;
-  height: 12rem;
+  @include size (12rem,12rem);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.61);
 }
 
 .imgDefault,
 .frame {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  @include size (100%,100%);
   backface-visibility: hidden;
   transition: transform 0.6s;
 }
@@ -79,7 +77,7 @@
   transform: rotateY(180deg);
 }
 
-.img{
+.img {
   position: absolute;
   width: 8.9rem;
   height: 9.6rem;
@@ -89,12 +87,6 @@
   transition: transform 0.6s;
 }
 
-.imgPerla{
-  position: absolute;
-  margin-left: 1.5rem;
-  margin-top: 1.3rem;
-  width: 8.9rem;
-  height: 9.6rem;
-  backface-visibility: hidden;
-  transition: transform 0.6s;
+.hidden{
+  display: none;
 }

@@ -1,1 +1,33 @@
+.footer {
+  //position: relative;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  @include padding (1rem,2rem);
+  flex-direction: column;
+  text-align: center;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
+  &__copy {
+    font-size: 2rem;
+    font-family: $font-patrick;
+    color: white;
+    @media (min-width: 768px) {
+      padding-top: 0;
+    }
+  }
+  &__linkedin {
+    margin-right: 1rem;
+    font-size: 2rem;
+    font-family: $font-patrick;
+    color: white;
+  }
+  &__git {
+    font-size: 2rem;
+    font-family: $font-patrick;
+    color: white;
+  }
+}

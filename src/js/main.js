@@ -1,81 +1,131 @@
 'use strict';
 
-const cards = document.querySelectorAll('.js-card');
-const defaultImages = document.querySelectorAll('.js-default');
-const artImages = document.querySelectorAll('.js-img');
+const moveResult = document.querySelector('.js-move');
+const showSuccess = document.querySelector('.js-success');
+const showTime = document.querySelector('.js-time');
 
 const btnReset = document.querySelector('.js-btn');
 
-let flippedCards = [];
-let lockBoard = false;
+let cardsDiscover = 0;
+let card1 = null;
+let card2 = null;
+let firstResult = null;
+let secondResult = null;
+let move = 0;
+let success = 0;
+let temp = false;
+let timer = 40;
+let timerInicial = 30;
+let countdown;
 
-function flipCard(cardElement) {
-  // Función para voltear una tarjeta cuando se hace clic en ella.
-  if (lockBoard) return; // Si el tablero está bloqueado, no hace nada.
-  if (cardElement === flippedCards[0]) return; // Si la tarjeta ya está volteada, no hace nada.
+let numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+numbers = numbers.sort(() => {
+  return Math.random() - 0.5;
+});
+console.log(numbers);
 
-  const defaultImg = cardElement.querySelector('.js-default'); // Obtiene la imagen por defecto de la tarjeta.
-  const artImg = cardElement.querySelector('.js-img'); // Obtiene la imagen de arte de la tarjeta.
+const countTime = () => {
+  countdown = setInterval(() => {
+    timer--;
+    showTime.innerHTML = `Tiempo: ${timer} segundos`;
 
-  defaultImg.classList.add('hidden');
-  artImg.classList.remove('hidden');
+    if (timer === 0) {
+      clearInterval(countdown);
+      showSuccess.innerHTML = `¡Se acabó el tiempo!`;
+      blockCards();
+    }
+  }, 1000);
+};
 
-  if (flippedCards.length === 0) {
-    // Si no hay tarjetas volteadas, agrega la actual a la lista.
-    flippedCards.push(cardElement);
-    return;
-  } else {
-    // Si ya hay una tarjeta volteada, compara las imágenes.
-    flippedCards.push(cardElement);
+const blockCards = () => {
+  let i = 0;
+  for (const blockCard of document.querySelectorAll(i)) {
+    blockCard.innerHTML = numbers[i];
+    blockCard.disabled = true;
+    i++;
+  }
+};
 
-    const firstCardId = flippedCards[0].querySelector('.js-img').id;
-    const secondCardId = flippedCards[1].querySelector('.js-img').id;
+/**funcion principal */
 
-    if (firstCardId === secondCardId) {
-      // Si las imágenes coinciden, vacía la lista de tarjetas volteadas.
-      flippedCards = [];
+const uncover = (id) => {
+  if (!temp) {
+    countTime();
+    temp = true;
+  }
+
+  cardsDiscover++;
+  console.log(cardsDiscover);
+
+  if (cardsDiscover === 1) {
+    card1 = document.getElementById(id);
+    firstResult = numbers[id];
+    card1.innerHTML = `<img class="frame" src="./assets/images/frame.png" /><img class="img js-img" src="./assets/images/${firstResult}.jpg"/>`;
+    card1.disabled = true;
+  } else if (cardsDiscover === 2) {
+    card2 = document.getElementById(id);
+    secondResult = numbers[id];
+    card2.innerHTML = `<img class="frame" src="./assets/images/frame.png" /><img class="img js-img" src="./assets/images/${secondResult}.jpg"/>`;
+    card2.disabled = true;
+
+    move++;
+    moveResult.innerHTML = `Movimientos: ${move}`;
+
+    if (firstResult == secondResult) {
+      cardsDiscover = 0;
+      success++;
+      showSuccess.innerHTML = `Aciertos: ${success}`;
+
+      if (success === 8) {
+        clearInterval(countdown);
+        showSuccess.innerHTML = `¡Lo lograste!`;
+        showTime.innerHTML = `Lo acabaste en ${timerInicial - timer} segundos`;
+        moveResult.innerHTML = `Lo hiciste con ${move} movimientos`;
+        btnReset.classList.remove('hidden');
+      }
     } else {
-      // Si las imágenes no coinciden, se vuelven a voltear después de un breve tiempo.
-      lockBoard = true; // Bloquea el tablero.
       setTimeout(() => {
-        flippedCards.forEach((card) => {
-          card.querySelector('.js-default').classList.remove('hidden');
-          card.querySelector('.js-img').classList.add('hidden');
-        });
-        flippedCards = []; // Vacía la lista de tarjetas volteadas.
-        lockBoard = false; // Desbloquea el tablero para continuar el juego.
-      }, 1000);
+        card1.innerHTML = '';
+        card2.innerHTML = '';
+        card1.disabled = false;
+        card2.disabled = false;
+        cardsDiscover = 0;
+      }, 800);
     }
   }
-}
+};
 
-function hideHiddenImages() {
-  artImages.forEach((img) => {
-    img.classList.add('hidden');
-  });
-}
+const handleReset = () => {
+  btnReset.classList.add('hidden');
+  cardsDiscover = 0;
+  card1 = null;
+  card2 = null;
+  firstResult = null;
+  secondResult = null;
+  move = 0;
+  success = 0;
+  temp = false;
+  timer = 40;
 
-function setup() {
-  hideHiddenImages();
-  cards.forEach((card) => {
-    card.addEventListener('click', function () {
-      flipCard(card);
-    });
-  });
-}
-
-setup();
-
-function handleReset() {
-  hideHiddenImages();
-
-  cards.forEach((card) => {
-    card.querySelector('.js-default').classList.remove('hidden');
-    card.querySelector('.js-img').classList.add('hidden');
+  // Restaurar las cartas a su estado original
+  const allCards = document.querySelectorAll('.memory__card');
+  allCards.forEach((card) => {
+    card.innerHTML = '';
+    card.disabled = false;
   });
 
-  flippedCards = [];
-  lockBoard = false;
-}
+  // Desordenar nuevamente el array de números
+  numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+  numbers = numbers.sort(() => Math.random() - 0.5);
+  console.log(numbers);
+
+  // Detener el temporizador si está en funcionamiento
+  clearInterval(countdown);
+
+  // Reiniciar los elementos HTML relacionados con el juego
+  moveResult.innerHTML = 'Movimientos: 0';
+  showSuccess.innerHTML = 'Aciertos: 0';
+  showTime.innerHTML = 'Tiempo: 40 segundos'; // O el tiempo inicial que desees
+};
 
 btnReset.addEventListener('click', handleReset);
