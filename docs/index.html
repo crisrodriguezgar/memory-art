@@ -1,68 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adalab Web Starter Kit</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="icon" href="./assets/images/favicon.png" />
-  </head>
 
-  <body>
-    <div class="page">
-      <header class="page__header">
-        <img src="./assets/images/logo-adalab.png" alt="Adalab">
-        <h1>Bienvenidos a Adalab</h1>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memory Art</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="icon" href="./assets/images/frame.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Shadows+Into+Light&family=Vina+Sans&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/d65782632e.js" crossorigin="anonymous"></script>
+</head>
 
-      <main class="page__main">
-        <h2>Este es el starter kit de Adalab</h2>
-        <p>Lo usamos para aprender:</p>
-        <ul class="main__list">
-          <li>Sass</li>
-          <li>HTML partials</li>
-          <li>Gulp</li>
-          <li>y muchas cosas más</li>
-        </ul>
-        <p>Si quieres saber cúales son las rutas correctas para:</p>
-        <ul class="main__list">
-          <li>
-            una <code class="code">&lt;img /&gt;</code> mira el fichero
-            <code class="code">./src/html/partials/header.html</code>.
-          </li>
-          <li>
-            y para un <code class="code">background-image</code> mira el fichero
-            <code class="code">./src/html/scss/layout/_page.scss</code>.
-          </li>
-        </ul>
-        <p>
-          Si quieres saber cómo usar un partial HTML dentro de otro partial, busca en la carperta
-          <code class="code">./src/html/index.html</code> y
-          <code class="code">./src/html/partials/main.html</code>, y verás cómo estamos creando estos
-          enlaces:
-        </p>
-        <ul class="main__list">
-          <li>
-            <a class="link__adalab" href="https://adalab.es">Adalab</a>
-
-          </li>
-          <li>
-            <a class="" href="./more-info.html">Más info del starter kit</a>
-
-          </li>
-        </ul>
-      </main>
-
-      <footer class="page__footer">
-        <small>
-          &copy; Todos los derechos reservados
-          <a class="link__adalab" href="https://adalab.es">Adalab</a>
-
-        </small>
-      </footer>
-
+<body>
+  <main class="main">
+    <h1 class="title">Memory Art</h1>
+    <section class="container">
+      <section class="memory">
+        <div class="memory__card" onclick="uncover(0)" id="0"></div>
+        <div class="memory__card" onclick="uncover(1)" id="1"></div>
+        <div class="memory__card" onclick="uncover(2)" id="2"></div>
+        <div class="memory__card" onclick="uncover(3)" id="3"></div>
+        <div class="memory__card" onclick="uncover(4)" id="4"></div>
+        <div class="memory__card" onclick="uncover(5)" id="5"></div>
+        <div class="memory__card" onclick="uncover(6)" id="6"></div>
+        <div class="memory__card" onclick="uncover(7)" id="7"></div>
+        <div class="memory__card" onclick="uncover(8)" id="8"></div>
+        <div class="memory__card" onclick="uncover(9)" id="9"></div>
+        <div class="memory__card" onclick="uncover(10)" id="10"></div>
+        <div class="memory__card" onclick="uncover(11)" id="11"></div>
+        <div class="memory__card" onclick="uncover(12)" id="12"></div>
+        <div class="memory__card" onclick="uncover(13)" id="13"></div>
+        <div class="memory__card" onclick="uncover(14)" id="14"></div>
+        <div class="memory__card" onclick="uncover(15)" id="15"></div>
+      </section>
+      <section class="moving">
+        <button class="btn js-btn hidden">Reiniciar juego</button>
+        <p class="move js-success">Aciertos: 0</p>
+        <p class="move js-move">Movimientos: 0</p>
+        <p class="move js-time">Tiempo: 0:00</p>
+      </section>
+    </section>
+  </main>
+  <footer class="footer">
+    <span class="footer__copy">© crisrodriguezgar</span>
+    <div>
+      <a href="https://www.linkedin.com/in/cristinarodriguezgar" target="_blank"><i
+          class="fa-brands fa-linkedin footer__linkedin"></i></a>
+      <a href="https://github.com/crisrodriguezgar" target="_blank"><i
+          class="fa-brands fa-github-alt footer__git"></i></a>
     </div>
-    <script src="./assets/js/main.js"></script>
-  </body>
+  </footer>
+  <script src="./assets/js/main.js"></script>
+</body>
+
 </html>
