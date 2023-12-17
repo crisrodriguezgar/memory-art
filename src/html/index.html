@@ -1,70 +1,274 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Memory Art</title>
-  <link
-    href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="./assets/css/main.css" />
-  <link rel="icon" href="./assets/images/favicon.png" />
-</head>
-<body>
-  <header>
-    <h1 class="title">Memory Art</h1>
-  </header>
-  
-  <main class="main">
- 
-    <button class="btn js-btn">Reiniciar juego</button><div class="memory">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Memory Art</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="icon" href="./assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Shadows+Into+Light&family=Vina+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/d65782632e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main class="main">
+      <h1 class="title">Memory Art</h1>
+      <div class="container">
+        <div class="memory">
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/mona-lisa1.jpg"
+                id="monaLisa"
+              />
+            </div>
+          </div>
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/mona-lisa1.jpg"
+                id="monaLisa"
+              />
+            </div>
+          </div>
+
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="imgPerla hidden js-img"
+                src="./assets/images/perla1.jpeg"
+                id="perla"
+              />
+            </div>
+          </div>
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="imgPerla hidden js-img"
+                src="./assets/images/perla1.jpeg"
+                id="perla"
+              />
+            </div>
+          </div>
+
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/frida1.jpg"
+                id="frida"
+              />
+            </div>
+          </div>
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/frida1.jpg"
+                id="frida"
+              />
+            </div>
+          </div>
+
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/venus.jpg"
+                id="venus"
+              />
+            </div>
+          </div>
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/venus.jpg"
+                id="venus"
+              />
+            </div>
+          </div>
+
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/klimt.jpg"
+                id="klimt"
+              />
+            </div>
+          </div>
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/klimt.jpg"
+                id="klimt"
+              />
+            </div>
+          </div>
+
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/durero.jpg"
+                id="david"
+              />
+            </div>
+          </div>
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/durero.jpg"
+                id="david"
+              />
+            </div>
+          </div>
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/durero.jpg"
+                id="david"
+              />
+            </div>
+          </div>
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/durero.jpg"
+                id="david"
+              />
+            </div>
+          </div>
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/durero.jpg"
+                id="david"
+              />
+            </div>
+          </div>
+          <div class="memory__card js-card">
+            <div>
+              <img class="frame" src="./assets/images/frame.png" alt="" />
+              <img
+                class="imgDefault hiddenImg js-default"
+                src="./assets/images/default1.jpg"
+              />
+              <img
+                class="img hidden js-img"
+                src="./assets/images/durero.jpg"
+                id="david"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="btn js-btn">Reiniciar juego</button>
+          <p class="move">Movimientos: 0</p>
+          <p class="move">Tiempo: 0:00</p>
+        </div>
+      </div>
+      <footer>
+        <div className="footer__copy" ><span>© crisrodriguezgar</span>
       
-    <div class="memory__card js-card">
-      <div><img class="frame" src="./assets/images/frame.png" alt="">
-      <img class="imgDefault hiddenImg js-default" src="./assets/images/default1.jpg"/>
-      <img class="img hidden js-img" src="./assets/images/mona-lisa.png" id="monaLisa" />
-    </div></div>
-    <div class="memory__card js-card">
-      <div><img class="frame" src="./assets/images/frame.png" alt="">
-      <img class="imgDefault hiddenImg js-default" src="./assets/images/default1.jpg"/>
-      <img class="img hidden js-img" src="./assets/images/mona-lisa.png" id="monaLisa" />
-    </div></div>
-
-    <div class="memory__card js-card">
-      <div><img class="frame" src="./assets/images/frame.png" alt="">
-      <img class="imgDefault hiddenImg js-default" src="./assets/images/default1.jpg"/>
-      <img class="imgPerla hidden js-img" src="./assets/images/perla.png" id="perla" />
-    </div></div>
-    <div class="memory__card js-card">
-      <div><img class="frame" src="./assets/images/frame.png" alt="">
-      <img class="imgDefault hiddenImg js-default" src="./assets/images/default1.jpg"/>
-      <img class="imgPerla hidden js-img" src="./assets/images/perla.png" id="perla" />
-    </div></div>
-
-    <div class="memory__card js-card">
-      <div><img class="frame" src="./assets/images/frame.png" alt="">
-      <img class="imgDefault hiddenImg js-default" src="./assets/images/default1.jpg"/>
-      <img class="img hidden js-img" src="./assets/images/frida.png" id="frida" />
-    </div></div>
-    <div class="memory__card js-card">
-      <div><img class="frame" src="./assets/images/frame.png" alt="">
-      <img class="imgDefault hiddenImg js-default" src="./assets/images/default1.jpg"/>
-      <img class="img hidden js-img" src="./assets/images/frida.png" id="frida" />
-    </div></div>
-
-    <div class="memory__card js-card">
-      <div><img class="frame" src="./assets/images/frame.png" alt="">
-      <img class="imgDefault hiddenImg js-default" src="./assets/images/default1.jpg"/>
-      <img class="img hidden js-img" src="./assets/images/david.png" id="david" />
-    </div></div>
-    <div class="memory__card js-card">
-      <div><img class="frame" src="./assets/images/frame.png" alt="">
-      <img class="imgDefault hiddenImg js-default" src="./assets/images/default1.jpg"/>
-      <img class="img hidden js-img" src="./assets/images/david.png" id="david" />
-    </div></div>
-  </div>
-</main>
-  <script src="./assets/js/main.js"></script>
-</body>
+          <a href="https://www.linkedin.com/in/cristinarodriguezgar" target="_blank"><i className="fa-brands fa-linkedin footer__linkedin"></i></a>
+          <a href="https://github.com/crisrodriguezgar" target="_blank"><i className="fa-brands fa-github-alt footer__git"></i></a></div>
+      </footer>
+    </main>
+    <script src="./assets/js/main.js"></script>
+  </body>
 </html>
