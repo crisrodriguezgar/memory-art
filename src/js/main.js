@@ -14,9 +14,10 @@ let secondResult = null;
 let move = 0;
 let success = 0;
 let temp = false;
-let timer = 4;
+let timer = 40;
 let timerInicial = 30;
 let countdown;
+let gameOver = false;
 
 let numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 numbers = numbers.sort(() => {
@@ -45,6 +46,7 @@ const resetAllCards = () => {
 };
 
 const blockCards = () => {
+  // Bloquear todas las tarjetas
   allCards.forEach((blockCard, i) => {
     const currentNumber = numbers[i];
     blockCard.innerHTML = `<img class="frame" src="./assets/images/frame.png" /><img class="img js-img" src="./assets/images/${currentNumber}.jpg"/>`;
@@ -65,6 +67,11 @@ const uncover = (id) => {
   if (!temp) {
     countTime();
     temp = true;
+  }
+
+  if (gameOver) {
+    // Verificar si el juego ha terminado
+    return; // Evitar cualquier interacción con las tarjetas si el juego ya ha terminado
   }
 
   cardsDiscover++;
@@ -105,6 +112,11 @@ const uncover = (id) => {
         cardsDiscover = 0;
       }, 800);
     }
+    if (gameOver || success === 8 || timer === 0) {
+      // Verificar si el juego ha finalizado
+      gameOver = true; // Establecer gameOver como true cuando el juego finaliza
+      blockCards(); // Bloquear todas las tarjetas una vez que el juego ha terminado
+    }
   }
 };
 
@@ -127,6 +139,7 @@ const handleReset = () => {
     card.disabled = false;
   });
 
+  gameOver = false;
   // Desordenar nuevamente el array de números
   numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
   numbers = numbers.sort(() => Math.random() - 0.5);

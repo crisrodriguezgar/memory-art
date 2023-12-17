@@ -5,7 +5,7 @@
   justify-content: space-around;
   @include padding (1rem,2rem);
   flex-direction: column;
-  text-align: center;
+  text-align: center;padding-inline: 3rem;
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
