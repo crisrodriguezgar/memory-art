@@ -84,7 +84,7 @@ const uncover = (id) => {
     move++;
     moveResult.innerHTML = `Movimientos: ${move}`;
 
-    if (firstResult == secondResult) {
+    if (firstResult === secondResult) {
       cardsDiscover = 0;
       success++;
       showSuccess.innerHTML = `Aciertos: ${success}`;
@@ -103,7 +103,7 @@ const uncover = (id) => {
         card1.disabled = false;
         card2.disabled = false;
         cardsDiscover = 0;
-        // Sumar un segundo al temporizador en caso de falla
+        // Sumar un segundo al temporizador en caso de fallar
         // timer++;
         // showTime.innerHTML = `Tiempo: ${timer} segundos`;
       }, 800);
@@ -133,7 +133,6 @@ const handleReset = () => {
   // Desordenar nuevamente el array de números
   numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
   numbers = numbers.sort(() => Math.random() - 0.5);
-  console.log(numbers);
 
   // Detener el temporizador si está en funcionamiento
   clearInterval(countdown);
@@ -141,7 +140,7 @@ const handleReset = () => {
   // Reiniciar los elementos HTML relacionados con el juego
   moveResult.innerHTML = 'Movimientos: 0';
   showSuccess.innerHTML = 'Aciertos: 0';
-  showTime.innerHTML = 'Tiempo: 40 segundos'; // O el tiempo inicial que desees
+  showTime.innerHTML = 'Tiempo: 40 segundos'; // O el tiempo
 };
 
 btnReset.addEventListener('click', handleReset);
