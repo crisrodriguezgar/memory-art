@@ -2,7 +2,7 @@
 
 This is the Memory Art made with Java Script 🎮✨. The user will play against time, they have 40 seconds to complete the game and guess where the pair of works of art is.
 
-<img src=".assets/images/memory-art.png" width="445"/>
+<img src="./assets/images/memory-art.PNG" width="445"/>
 
 ## 📋 Initial Requeriments
 
