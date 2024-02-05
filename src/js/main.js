@@ -67,7 +67,8 @@ const resetAllCards = () => {
 const blockCards = () => {
   allCards.forEach((blockCard, i) => {
     const currentNumber = numbers[i];
-    blockCard.innerHTML = `<img class="frame" src="./assets/images/frame.png" /><img class="img js-img" src="./assets/images/${currentNumber}.jpg"/>`;
+    blockCard.innerHTML = `<img class="frame" src="./assets/images/frame.png"/>
+                          <img class="img js-img" src="./assets/images/${currentNumber}.jpg"/>`;
     blockCard.disabled = true;
     btnReset.classList.remove('hidden');
   });
@@ -88,17 +89,18 @@ const uncover = (id) => {
   }
 
   cardsDiscover++;
-  console.log(cardsDiscover);
 
   if (cardsDiscover === 1) {
     card1 = document.getElementById(id);
     firstResult = numbers[id];
-    card1.innerHTML = `<img class="frame" src="./assets/images/frame.png" /><img class="img js-img" src="./assets/images/${firstResult}.jpg"/>`;
+    card1.innerHTML = `<img class="frame" src="./assets/images/frame.png" />
+                      <img class="img js-img" src="./assets/images/${firstResult}.jpg"/>`;
     card1.disabled = true;
   } else if (cardsDiscover === 2) {
     card2 = document.getElementById(id);
     secondResult = numbers[id];
-    card2.innerHTML = `<img class="frame" src="./assets/images/frame.png" /><img class="img js-img" src="./assets/images/${secondResult}.jpg"/>`;
+    card2.innerHTML = `<img class="frame" src="./assets/images/frame.png" />
+                      <img class="img js-img" src="./assets/images/${secondResult}.jpg"/>`;
     card2.disabled = true;
 
     move++;
