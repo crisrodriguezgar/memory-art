@@ -4,6 +4,8 @@ const moveResult = document.querySelector('.js-move');
 const showSuccess = document.querySelector('.js-success');
 const showTime = document.querySelector('.js-time');
 
+const allCards = document.querySelectorAll('.memory__card');
+
 const btnReset = document.querySelector('.js-btn');
 
 let cardsDiscover = 0;
@@ -23,18 +25,6 @@ numbers = numbers.sort(() => {
   return Math.random() - 0.5;
 });
 
-const countTime = () => {
-  countdown = setInterval(() => {
-    timer--;
-    showTime.innerHTML = `Tiempo: ${timer} segundos`;
-
-    if (timer === 0) {
-      clearInterval(countdown);
-      showSuccess.innerHTML = `¡OH NO! ¡Se acabó el tiempo! <img class="icon" src="./assets/images/triste.png" />`;
-      blockCards();
-    }
-  }, 1000);
-};
 
 const imagePaths = [
   './assets/images/frame.png',
@@ -57,13 +47,6 @@ const preloadImages = (paths) => {
 
 preloadImages(imagePaths);
 
-const resetAllCards = () => {
-  allCards.forEach((card) => {
-    card.innerHTML = '';
-    card.disabled = false;
-  });
-};
-
 const blockCards = () => {
   allCards.forEach((blockCard, i) => {
     const currentNumber = numbers[i];
@@ -71,18 +54,26 @@ const blockCards = () => {
                           <img class="img js-img" src="./assets/images/${currentNumber}.jpg"/>`;
     blockCard.disabled = true;
     btnReset.classList.remove('hidden');
+    cardsDiscover = 8;
   });
 };
 
-const allCards = document.querySelectorAll('.memory__card');
-allCards.forEach((card) => {
-  card.innerHTML = '';
-  card.disabled = false;
-});
+const countTime = () => {
+  countdown = setInterval(() => {
+    timer--;
+    showTime.innerHTML = `Tiempo: ${timer} segundos`;
+
+    if (timer === 0) {
+      clearInterval(countdown);
+      showSuccess.innerHTML = `¡OH NO! ¡Se acabó el tiempo! <img class="icon" src="./assets/images/triste.png" />`;
+      blockCards();
+    }
+  }, 1000);
+};
 
 /**funcion principal */
 
-const uncover = (id) => {
+const handleClick = (id) => {
   if (!temp) {
     countTime();
     temp = true;
@@ -112,6 +103,7 @@ const uncover = (id) => {
       showSuccess.innerHTML = `Aciertos: ${success}`;
 
       if (success === 8) {
+        cardsDiscover = 8;
         clearInterval(countdown);
         showSuccess.innerHTML = `¡Lo lograste! <img class="icon" src="./assets/images/win.png" />`;
         showTime.innerHTML = `Lo acabaste en ${timerInicial - timer} segundos`;
@@ -145,24 +137,25 @@ const handleReset = () => {
   temp = false;
   timer = 40;
 
-  // Restaurar las cartas a su estado original
-  const allCards = document.querySelectorAll('.memory__card');
   allCards.forEach((card) => {
     card.innerHTML = '';
     card.disabled = false;
   });
 
-  // Desordenar nuevamente el array de números
   numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
   numbers = numbers.sort(() => Math.random() - 0.5);
 
-  // Detener el temporizador si está en funcionamiento
   clearInterval(countdown);
 
-  // Reiniciar los elementos HTML relacionados con el juego
   moveResult.innerHTML = 'Movimientos: 0';
   showSuccess.innerHTML = 'Aciertos: 0';
-  showTime.innerHTML = 'Tiempo: 40 segundos'; // O el tiempo
+  showTime.innerHTML = 'Tiempo: 40 segundos';
 };
+
+//eventos
+
+allCards.forEach((card, id) => {
+  card.addEventListener('click', () => handleClick(id));
+});
 
 btnReset.addEventListener('click', handleReset);
