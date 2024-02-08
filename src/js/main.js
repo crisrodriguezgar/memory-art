@@ -17,10 +17,11 @@ let move = 0;
 let success = 0;
 let temp = false;
 let timer = 40;
-let timerInicial = 30;
+const timerInicial = 40;
 let countdown;
 
 let numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+
 numbers = numbers.sort(() => {
   return Math.random() - 0.5;
 });
@@ -71,7 +72,9 @@ const countTime = () => {
   }, 1000);
 };
 
-/**funcion principal */
+
+
+/**funcion principal **/
 
 const handleClick = (id) => {
   if (!temp) {
@@ -87,6 +90,7 @@ const handleClick = (id) => {
     card1.innerHTML = `<img class="frame" src="./assets/images/frame.png" />
                       <img class="img js-img" src="./assets/images/${firstResult}.jpg"/>`;
     card1.disabled = true;
+
   } else if (cardsDiscover === 2) {
     card2 = document.getElementById(id);
     secondResult = numbers[id];
@@ -110,6 +114,7 @@ const handleClick = (id) => {
         moveResult.innerHTML = `Lo hiciste con ${move} movimientos`;
         btnReset.classList.remove('hidden');
       }
+
     } else {
       setTimeout(() => {
         card1.innerHTML = '';
@@ -117,13 +122,13 @@ const handleClick = (id) => {
         card1.disabled = false;
         card2.disabled = false;
         cardsDiscover = 0;
-        // Sumar un segundo al temporizador en caso de fallar
-        // timer++;
-        // showTime.innerHTML = `Tiempo: ${timer} segundos`;
       }, 800);
     }
   }
 };
+
+
+/* RESET */
 
 const handleReset = () => {
   btnReset.classList.add('hidden');
@@ -142,7 +147,6 @@ const handleReset = () => {
     card.disabled = false;
   });
 
-  numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
   numbers = numbers.sort(() => Math.random() - 0.5);
 
   clearInterval(countdown);
@@ -152,7 +156,7 @@ const handleReset = () => {
   showTime.innerHTML = 'Tiempo: 40 segundos';
 };
 
-//eventos
+//escuchar los eventos
 
 allCards.forEach((card, id) => {
   card.addEventListener('click', () => handleClick(id));
